@@ -15,16 +15,29 @@ function App() {
   }, [])
 
   const fetchPortions = async () => {
-    const res = await fetch(`http://localhost:5000/api/portions/`)
+    const res = await fetch(`http://localhost:5000/api/portions`)
     const data = await res.json()
 
+    // console.log(data)
     return data
+  }
+
+  const addPortion = async (portion) => {
+    const res = await fetch(`http://localhost:5000/api/portions`, {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify(portion),
+    })
+
+    const data = await res.json()
+
+    setPortions([...portions, data])
   }
 
   return (
     <div className="App">
       <Header />
-      <Portions categories={categories} portions={portions}/>
+      <Portions categories={categories} portions={portions} onAdd={addPortion}/>
     </div>
   );
 }
