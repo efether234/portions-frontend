@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react'
+import categories from './categories'
+import Header from './components/Header'
+import Portions from './components/Portions'
 
 function App() {
+  const [portions, setPortions] = useState([])
+
+  useEffect(() => {
+    const getPortions = async () => {
+      const portionsFromServer = await fetchPortions()
+      setPortions(portionsFromServer)
+    }
+    getPortions()
+  }, [])
+
+  const fetchPortions = async () => {
+    const res = await fetch(`http://localhost:5000/api/portions/`)
+    const data = await res.json()
+
+    return data
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Portions categories = {categories} portions={portions}/>
     </div>
   );
 }

@@ -1,13 +1,47 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.graph {
+    display: flex;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.graph-heading {
+    text-align: right;
+    padding-right: 20px;
+    width: 150px;
+}
+
+.portion {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.proteins {
+    background-color: #92390e;
+}
+
+.dairy {
+    background-color: #7a9090;
+}
+
+.fruits {
+    background-color: #7a0063;
+}
+
+.vegetables {
+    background-color: #3b5712;
+}
+
+.fats {
+    background-color: #fdbe30;
+}
+
+.carbohydrates {
+    background-color: #a27152;
+}
+
+.snacks {
+    background-color: #f48837;
+}
+
+.condiments {
+    background-color: #d9392f;
 }
