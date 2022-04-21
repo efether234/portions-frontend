@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Portions categories = {categories} portions={portions}/>
+      <Portions categories={categories} portions={portions}/>
     </div>
   );
 }

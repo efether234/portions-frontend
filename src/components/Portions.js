@@ -5,7 +5,7 @@ function Portions({ portions, categories}) {
     <>
       {categories.map((category, index) => (
         <div>
-          <Graph key={category.id} num={category.num} cat={category.name}/>
+          <Graph key={category.id} num={category.num} cat={category.name} portions={portions}/>
         </div>
       ))}
     </>
