@@ -4,6 +4,11 @@ import Header from './components/Header'
 import Portions from './components/Portions'
 
 function App() {
+  let today = new Date()
+  today = String(today.getUTCFullYear()) + '-'
+    + String(today.getUTCMonth() + 1).padStart(2, '0') + '-'
+    + String(today.getUTCDate()).padStart(2, '0')
+  
   const [portions, setPortions] = useState([])
 
   useEffect(() => {
@@ -15,7 +20,7 @@ function App() {
   }, [])
 
   const fetchPortions = async () => {
-    const res = await fetch(`http://localhost:5000/api/portions`)
+    const res = await fetch(`http://localhost:5000/api/portions/${today}`)
     const data = await res.json()
 
     // console.log(data)
